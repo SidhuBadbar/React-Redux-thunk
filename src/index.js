@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux'
 import reducer from './Store/reducer'
 import thunk from 'redux-thunk'
@@ -15,9 +16,11 @@ const store = createStore(reducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   // <React.StrictMode>
+  <BrowserRouter>
   <Provider store={store}>
     <App />
-  </Provider>,
+  </Provider>
+  </BrowserRouter>,
   // </React.StrictMode>,
   document.getElementById('root')
 );
